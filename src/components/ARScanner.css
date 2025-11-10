@@ -1,0 +1,149 @@
+.ar-scanner {
+  min-height: 100vh;
+  padding: 40px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ar-scanner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #fff 0%, #a8edea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  text-align: center;
+}
+
+.scanner-container {
+  width: 90%;
+  max-width: 800px;
+  height: 500px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.selected-table {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #4cd137;
+  margin-bottom: 30px;
+  text-align: center;
+  background: rgba(76, 209, 55, 0.1);
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 1px solid rgba(76, 209, 55, 0.3);
+}
+
+.scanner-actions {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.proceed-btn {
+  background: linear-gradient(135deg, #4cd137 0%, #44bd32 100%);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(76, 209, 55, 0.3);
+}
+
+.proceed-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(76, 209, 55, 0.4);
+}
+
+.proceed-btn:disabled {
+  background: rgba(255, 255, 255, 0.2);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Three.js Canvas Styling */
+.scanner-container canvas {
+  border-radius: 18px;
+}
+
+/* AR Scanner Background */
+.ar-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  opacity: 0.4;
+  filter: blur(2px);
+}
+
+/* Instructions */
+.scanner-instructions {
+  text-align: center;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  max-width: 600px;
+}
+
+/* Table Grid Preview */
+.table-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+  max-width: 600px;
+}
+
+.table-emoji {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.table-emoji:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+.table-emoji.selected {
+  background: linear-gradient(135deg, #4cd137 0%, #44bd32 100%);
+  border-color: rgba(76, 209, 55, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scanner-container {
+    height: 400px;
+  }
+  
+  .ar-scanner h2 {
+    font-size: 2rem;
+  }
+  
+  .table-preview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
